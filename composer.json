@@ -1,13 +1,19 @@
 {
-    "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "falcon/auth-service",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": [
-        "laravel",
-        "framework"
+    "description": "Falcon Auth Service",
+    "authors": [
+        {
+            "name": "Falcon ERP",
+            "email": "gustavo-computacao@hotmail.com"
+        }
     ],
-    "license": "MIT",
+    "keywords": [
+        "falcon",
+        "erp",
+        "Auth",
+        "service"
+    ],
     "require": {
         "php": "^8.2",
         "laravel/framework": "^12.0",
@@ -23,7 +29,8 @@
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
         "pestphp/pest": "^3.8",
-        "pestphp/pest-plugin-laravel": "^3.2"
+        "pestphp/pest-plugin-laravel": "^3.2",
+        "rector/rector": "^2.1"
     },
     "autoload": {
         "psr-4": {
@@ -59,12 +66,29 @@
         ],
         "test": [
             "@php artisan config:clear --ansi",
-            "@php artisan test"
+            "@php artisan test",
+            "@rector --dry-run",
+            "@pint --test",
+            "@pest"
+        ],
+        "pint": [
+            "vendor\\bin\\pint"
+        ],
+        "rector": [
+            "vendor\\bin\\rector process"
+        ],
+        "pest": [
+            "vendor\\bin\\pest tests"
+        ],
+        "serve": [
+            "@php artisan serve --port=8004"
         ]
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "laravel/telescope"
+            ]
         }
     },
     "config": {
