@@ -16,7 +16,7 @@ return [
     */
 
     'defaults' => [
-        'guard'     => env('AUTH_GUARD', 'web'),
+        'guard'     => env('AUTH_GUARD', 'sanctum'),
         'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
     ],
 
@@ -38,9 +38,10 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver'   => 'session',
+        'sanctum' => [
+            'driver'   => 'sanctum',
             'provider' => 'users',
+            'hash'     => false,
         ],
     ],
 
@@ -64,7 +65,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model'  => env('AUTH_MODEL', App\Models\User::class),
+            'model'  => env('AUTH_MODEL', FalconERP\Skeleton\Models\User::class),
         ],
 
         // 'users' => [
@@ -99,6 +100,7 @@ return [
             'expire'   => 60,
             'throttle' => 60,
         ],
+        'expire' => 600, // 10 hour
     ],
 
     /*

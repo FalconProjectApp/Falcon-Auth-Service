@@ -48,7 +48,7 @@ class AuthService extends BaseService
 
         /*  Notification::route('slack', env('LOG_SLACK_WEBHOOK_URL_NOTIFICATIONS'))
              ->notify(new UserCreatedNotification(auth()->user(), database())); */
-
+        dd(database());
         return database();
     }
 

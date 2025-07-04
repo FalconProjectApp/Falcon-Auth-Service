@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Erp\Public\Auth\V1\Auth;
+namespace App\Http\Requests\Erp\Public\V1\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 

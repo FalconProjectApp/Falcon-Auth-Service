@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Erp\Public\Auth\V2\Auth;
+namespace App\Http\Requests\Erp\Public\V2\Auth;
 
 use FalconERP\Skeleton\Models\BackOffice\GiftCode;
 use Illuminate\Foundation\Http\FormRequest;
