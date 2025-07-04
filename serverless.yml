@@ -1,4 +1,4 @@
-service: stock
+service: auth
 
 plugins:
   # We need to include the Bref plugin
@@ -25,7 +25,7 @@ provider:
       $forEach:
         iterator: ${self:custom.environments}
         template:
-          $forEach.value: bref-ssm:/falcon/stock/${sls:stage}/$forEach.value
+          $forEach.value: bref-ssm:/falcon/auth/${sls:stage}/$forEach.value
 
 functions:
     # This function runs the Laravel website/API
